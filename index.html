@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papa Barney · Automecánica</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    :root {
+      --morado: #8a2be2;
+      --dorado: #ffd700;
+    }
+
+    body {
+      background: #f5f5f5;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--morado), #5a1e9e);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--dorado);
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hamburguesa {
+      display: none;
+      font-size: 2rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 3px solid var(--morado);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-imagen {
+      min-height: 350px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url('portada.jpg');
+      background-color: #f0e6f0;
+    }
+
+    .hero-content {
+      padding: 2.5rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      color: var(--morado);
+    }
+
+    .hero-content h1 small {
+      display: block;
+      font-size: 1.2rem;
+      color: #e67e22;
+    }
+
+    .servicios-destacados {
+      background: #f0f0f0;
+      padding: 1.2rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+      border-left: 6px solid var(--morado);
+    }
+
+    .direccion {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      margin: 1rem 0;
+    }
+
+    .botones {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+    }
+
+    .btn-wsp {
+      background: #25D366;
+      color: white;
+      padding: 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-llamada {
+      background: var(--morado);
+      color: white;
+      padding: 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    /* NUEVO BOTÓN COMPARTIR */
+    .btn-compartir {
+      background: var(--dorado);
+      color: var(--morado);
+      padding: 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      border: 2px solid var(--morado);
+    }
+
+    .btn-compartir:hover {
+      background: #e6c300;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      border-bottom: 4px solid var(--morado);
+    }
+
+    .card h3 {
+      color: var(--morado);
+      margin-bottom: 1rem;
+    }
+
+    .contacto-box {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 20px;
+      border: 2px solid var(--morado);
+      text-align: center;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .hamburguesa {
+        display: block;
+      }
+      .menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--morado);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+      }
+      .menu.mostrar {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">PAPA <span>BARNEY</span></div>
+    <button class="hamburguesa" id="menuBtn">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="hero-imagen"></div>
+    <div class="hero-content">
+      <h1><small>Automecánica</small> PAPA BARNEY</h1>
+      
+      <div class="servicios-destacados">
+        <strong>⚙️ Reparación y mantenimiento profesional</strong><br>
+        • Diésel y gasolina • Todas las marcas<br>
+        • Full inyección • Venta de repuestos
+      </div>
+
+      <div class="direccion">
+        📍 <strong>Avenida 5 N° 1-73</strong><br>
+        Cúcuta, Colombia
+      </div>
+
+      <div class="botones">
+        <a href="https://wa.me/573228263798" class="btn-wsp">📱 WhatsApp 322 826 3798</a>
+        <a href="https://wa.me/573228044679" class="btn-wsp">📱 WhatsApp 322 804 4679</a>
+        <a href="tel:+573228263798" class="btn-llamada">📞 Llamar ahora</a>
+        
+        <!-- 🎁 BOTÓN COMPARTIR (REGALO) -->
+        <a href="https://wa.me/?text=¡Mira%20lo%20que%20encontré!%20Taller%20mecánico%20Papa%20Barney%20en%20Cúcuta%20👉%20https://papa-barney.netlify.app" 
+           class="btn-compartir" 
+           target="_blank">
+          🎁 Compartir con un amigo
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section id="servicios" class="grid-3">
+  <div class="card">
+    <h3>🔧 Mantenimiento</h3>
+    <p>Preventivo y correctivo para todas las marcas.</p>
+  </div>
+  <div class="card">
+    <h3>⚙️ Inyección</h3>
+    <p>Sistema full inyección electrónica.</p>
+  </div>
+  <div class="card">
+    <h3>🛞 Repuestos</h3>
+    <p>Venta de repuestos originales y alternativos.</p>
+  </div>
+</section>
+
+<section id="contacto" class="contacto-box">
+  <h2 style="color: var(--morado);">Contáctenos</h2>
+  <p style="font-size: 1.3rem;">📞 322 826 3798 · 322 804 4679</p>
+  <p>📍 Avenida 5 N° 1-73, Cúcuta</p>
+  <p>⏰ Lunes a viernes 8am-6pm · Sábados 8am-2pm</p>
+</section>
+
+<footer>
+  <p>&copy; 2026 Papa Barney · Todos los derechos reservados</p>
+  <p>Logo creado con IA · Diseño original</p>
+</footer>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  btn.addEventListener('click', () => menu.classList.toggle('mostrar'));
+</script>
+
+</body>
+</html>
