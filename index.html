@@ -15,6 +15,7 @@
     :root {
       --morado: #8a2be2;
       --dorado: #ffd700;
+      --gris: #4a5b6e;
     }
 
     body {
@@ -56,6 +57,7 @@
     .menu li a {
       color: white;
       text-decoration: none;
+      font-weight: 500;
     }
 
     .hamburguesa {
@@ -88,7 +90,7 @@
     }
 
     .hero-content {
-      padding: 2.5rem;
+      padding: 2rem;
     }
 
     .hero-content h1 {
@@ -102,11 +104,21 @@
       color: #e67e22;
     }
 
+    .badge-elite {
+      background: var(--dorado);
+      color: var(--morado);
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+
     .servicios-destacados {
       background: #f0f0f0;
-      padding: 1.2rem;
+      padding: 1rem;
       border-radius: 15px;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
       border-left: 6px solid var(--morado);
     }
 
@@ -115,20 +127,19 @@
       padding: 1rem;
       border-radius: 10px;
       border: 1px solid #ddd;
-      margin: 1rem 0;
     }
 
     .botones {
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
     }
 
     .btn-wsp {
       background: #25D366;
       color: white;
-      padding: 1rem;
+      padding: 0.8rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
@@ -141,7 +152,7 @@
     .btn-llamada {
       background: var(--morado);
       color: white;
-      padding: 1rem;
+      padding: 0.8rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
@@ -151,11 +162,10 @@
       gap: 0.5rem;
     }
 
-    /* NUEVO BOTÓN COMPARTIR */
     .btn-compartir {
       background: var(--dorado);
       color: var(--morado);
-      padding: 1rem;
+      padding: 0.8rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
@@ -163,35 +173,63 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      margin-top: 0.5rem;
       border: 2px solid var(--morado);
     }
 
-    .btn-compartir:hover {
-      background: #e6c300;
+    /* QR */
+    .qr-section {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 30px;
+      border: 3px solid var(--morado);
+      text-align: center;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+    .qr-container img {
+      max-width: 200px;
+      border-radius: 20px;
+      border: 4px solid var(--dorado);
+    }
+
+    /* FILOSOFÍA */
+    .filosofia {
       max-width: 1200px;
       margin: 3rem auto;
       padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
     }
 
-    .card {
+    .filosofia-item {
       background: white;
-      padding: 2rem;
+      padding: 1.5rem;
+      border-radius: 20px;
+      text-align: center;
+      border-top: 5px solid var(--morado);
+    }
+
+    /* SERVICIOS */
+    .servicios-grid {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .servicio-card {
+      background: white;
+      padding: 1.5rem;
       border-radius: 15px;
       border-bottom: 4px solid var(--morado);
+      text-align: center;
     }
 
-    .card h3 {
-      color: var(--morado);
-      margin-bottom: 1rem;
-    }
-
+    /* CONTACTO */
     .contacto-box {
       max-width: 800px;
       margin: 3rem auto;
@@ -210,8 +248,83 @@
       margin-top: 3rem;
     }
 
+    /* PÁGINA OCULTA DE PLANES (solo visible al hacer clic en el botón) */
+    #planes-page {
+      display: none;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 30px;
+      border: 3px solid var(--morado);
+    }
+
+    #planes-page:target {
+      display: block;
+    }
+
+    .planes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .plan-card {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      border-bottom: 5px solid;
+    }
+
+    .plan-basico { border-bottom-color: #3498db; }
+    .plan-pro { border-bottom-color: #e67e22; }
+    .plan-elite { border-bottom-color: var(--morado); }
+
+    .precio {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 1rem 0;
+    }
+
+    .comision {
+      background: var(--dorado);
+      color: var(--morado);
+      padding: 0.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin: 1rem 0;
+    }
+
+    .beneficios {
+      list-style: none;
+      text-align: left;
+    }
+
+    .beneficios li {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .beneficios li::before {
+      content: "✅";
+    }
+
+    .pool-badge {
+      background: var(--morado);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
     @media (max-width: 768px) {
-      .hero, .grid-3 {
+      .hero, .filosofia, .servicios-grid, .planes-grid {
         grid-template-columns: 1fr;
       }
       .hamburguesa {
@@ -242,8 +355,12 @@
     <button class="hamburguesa" id="menuBtn">☰</button>
     <ul class="menu" id="menu">
       <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#filosofia">Filosofía</a></li>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#qr">QR</a></li>
       <li><a href="#contacto">Contacto</a></li>
+      <!-- Botón "Quiero mi tarjeta" apunta a SU número -->
+      <li><a href="https://wa.me/573244913371?text=Quiero%20una%20tarjeta%20como%20la%20de%20Papa%20Barney" target="_blank" style="background: var(--dorado); color: var(--morado); padding: 0.5rem 1rem; border-radius: 30px;">🔥 Quiero mi tarjeta</a></li>
     </ul>
   </div>
 </header>
@@ -252,10 +369,11 @@
   <section class="hero">
     <div class="hero-imagen"></div>
     <div class="hero-content">
+      <span class="badge-elite">⚙️ TALLER MECÁNICO</span>
       <h1><small>Automecánica</small> PAPA BARNEY</h1>
       
       <div class="servicios-destacados">
-        <strong>⚙️ Reparación y mantenimiento profesional</strong><br>
+        <strong>🔧 Reparación y mantenimiento profesional</strong><br>
         • Diésel y gasolina • Todas las marcas<br>
         • Full inyección • Venta de repuestos
       </div>
@@ -269,49 +387,119 @@
         <a href="https://wa.me/573228263798" class="btn-wsp">📱 WhatsApp 322 826 3798</a>
         <a href="https://wa.me/573228044679" class="btn-wsp">📱 WhatsApp 322 804 4679</a>
         <a href="tel:+573228263798" class="btn-llamada">📞 Llamar ahora</a>
-        
-        <!-- 🎁 BOTÓN COMPARTIR (REGALO) -->
-        <a href="https://wa.me/?text=¡Mira%20lo%20que%20encontré!%20Taller%20mecánico%20Papa%20Barney%20en%20Cúcuta%20👉%20https://papa-barney.netlify.app" 
-           class="btn-compartir" 
-           target="_blank">
-          🎁 Compartir con un amigo
-        </a>
+        <a href="https://wa.me/?text=¡Mira%20lo%20que%20encontré!%20Taller%20Papa%20Barney%20👉%20https://papa-barney.netlify.app" class="btn-compartir">🎁 Compartir con un amigo</a>
       </div>
     </div>
   </section>
 </main>
 
-<section id="servicios" class="grid-3">
-  <div class="card">
+<!-- FILOSOFÍA -->
+<section id="filosofia" class="filosofia">
+  <div class="filosofia-item">
+    <h3>🔧 Misión</h3>
+    <p>Ofrecer reparaciones honestas y de calidad, cuidando el bolsillo de nuestros clientes.</p>
+  </div>
+  <div class="filosofia-item">
+    <h3>🔩 Visión</h3>
+    <p>Ser el taller de confianza para toda la familia barneysta en Cúcuta.</p>
+  </div>
+  <div class="filosofia-item">
+    <h3>⚙️ Valores</h3>
+    <p>Honestidad, rapidez, garantía y trato familiar.</p>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="servicios-grid">
+  <div class="servicio-card">
     <h3>🔧 Mantenimiento</h3>
     <p>Preventivo y correctivo para todas las marcas.</p>
   </div>
-  <div class="card">
+  <div class="servicio-card">
     <h3>⚙️ Inyección</h3>
     <p>Sistema full inyección electrónica.</p>
   </div>
-  <div class="card">
+  <div class="servicio-card">
     <h3>🛞 Repuestos</h3>
     <p>Venta de repuestos originales y alternativos.</p>
   </div>
 </section>
 
+<!-- QR -->
+<section id="qr" class="qr-section">
+  <div class="qr-container">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://papa-barney.netlify.app" alt="Código QR">
+    <h3 style="color: var(--morado); margin-top: 1rem;">📲 ESCANEA Y COMPARTE</h3>
+    <p>Guarda este código QR para ver la tarjeta digital al instante.</p>
+  </div>
+</section>
+
+<!-- CONTACTO -->
 <section id="contacto" class="contacto-box">
-  <h2 style="color: var(--morado);">Contáctenos</h2>
-  <p style="font-size: 1.3rem;">📞 322 826 3798 · 322 804 4679</p>
+  <h2 style="color: var(--morado);">📞 Contáctenos</h2>
+  <p style="font-size: 1.3rem;">📱 322 826 3798 · 322 804 4679</p>
   <p>📍 Avenida 5 N° 1-73, Cúcuta</p>
   <p>⏰ Lunes a viernes 8am-6pm · Sábados 8am-2pm</p>
 </section>
 
+<!-- PÁGINA OCULTA DE PLANES (solo visible por el botón) -->
+<section id="planes-page">
+  <h2 style="color: var(--morado); text-align: center;">📊 PLANES TARJETA DIGITAL</h2>
+  <div class="planes-grid">
+    
+    <!-- PLAN BÁSICO -->
+    <div class="plan-card plan-basico">
+      <h3>BÁSICO</h3>
+      <div class="precio">$25.000</div>
+      <div class="comision">20% · $5.000 x referido</div>
+      <ul class="beneficios">
+        <li>Tarjeta digital profesional</li>
+        <li>Botón WhatsApp</li>
+        <li>Misión/Visión/Valores</li>
+        <li>Menú de servicios</li>
+      </ul>
+    </div>
+
+    <!-- PLAN PRO -->
+    <div class="plan-card plan-pro">
+      <h3>PRO</h3>
+      <div class="precio">$50.000</div>
+      <div class="comision">30% · $15.000 x referido</div>
+      <ul class="beneficios">
+        <li>Todo lo del Básico</li>
+        <li>Código QR personalizado</li>
+        <li>Botón compartir</li>
+        <li>Diseño mejorado</li>
+      </ul>
+    </div>
+
+    <!-- PLAN ÉLITE -->
+    <div class="plan-card plan-elite">
+      <h3>ÉLITE</h3>
+      <div class="precio">$100.000</div>
+      <div class="comision">40% · $40.000 x referido</div>
+      <ul class="beneficios">
+        <li>Todo lo del Pro</li>
+        <li>Posicionamiento SEO</li>
+        <li>Participación en POOL anual</li>
+      </ul>
+      <div class="pool-badge">
+        🏆 POOL ANUAL: 10% de todas las ventas repartido entre ÉLITES
+      </div>
+    </div>
+  </div>
+  <p style="text-align: center; margin-top: 2rem;">📲 Para contratar, escribe a nuestro WhatsApp</p>
+</section>
+
 <footer>
-  <p>&copy; 2026 Papa Barney · Todos los derechos reservados</p>
-  <p>Logo creado con IA · Diseño original</p>
+  <p>&copy; 2026 Automecánica Papa Barney · Todos los derechos reservados</p>
+  <p>📍 Avenida 5 N° 1-73, Cúcuta · 📱 322 826 3798</p>
 </footer>
 
 <script>
-  const btn = document.getElementById('menuBtn');
+  const menuBtn = document.getElementById('menuBtn');
   const menu = document.getElementById('menu');
-  btn.addEventListener('click', () => menu.classList.toggle('mostrar'));
+  menuBtn.addEventListener('click', () => menu.classList.toggle('mostrar'));
 </script>
 
 </body>
